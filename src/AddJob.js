@@ -58,14 +58,12 @@ export default function AddJob() {
     let invalids = [];
 
     for (const property in job) {
-      console.log(property);
       if (job[property].length === 0 && !optionalFields.has(property)) {
-        console.log("found empty field");
         invalids.push(property);
       }
     }
-    setInvalidFormFields(invalids);
-    return invalidFormFields.length === 0 ? true : false;
+    setInvalidFormFields([...invalids]);
+    return invalids.length === 0;
   };
 
   const handleSubmit = (e) => {
@@ -153,7 +151,7 @@ export default function AddJob() {
             </Form.Field>
             <Form.Field required>
               <label>Position Description</label>
-              <textarea
+              <Form.TextArea
                 error={
                   invalidFormFields.includes("positionInfo")
                     ? "Please enter a position description."
