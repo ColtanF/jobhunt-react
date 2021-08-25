@@ -1,0 +1,18 @@
+db structure: 
++---------------+--------------+------+-----+-------------------+-------------------+
+| id            | int          | NO   | PRI | NULL              | auto_increment    |
+| company       | varchar(100) | YES  |     | NULL              |                   |
+| position      | varchar(200) | YES  |     | NULL              |                   |
+| companyInfo   | text         | YES  |     | NULL              |                   |
+| positionInfo  | text         | YES  |     | NULL              |                   |
+| reqsIMeet     | text         | YES  |     | NULL              |                   |
+| reqsIDontMeet | text         | YES  |     | NULL              |                   |
+| salary        | varchar(200) | YES  |     | NULL              |                   |
+| address       | varchar(200) | YES  |     | NULL              |                   |
+| links         | text         | YES  |     | NULL              |                   |
+| status        | varchar(200) | YES  |     | NULL              |                   |
+  + statusNotes   text 
+| rating        | int          | YES  |     | NULL              |                   |
+| username      | varchar(30)  | YES  |     | NULL              |                   |
+| create_date   | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++---------------+--------------+------+-----+-------------------+-------------------+

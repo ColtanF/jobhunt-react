@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "./App.css";
+// import "semantic-ui-css/semantic.min.css";
+
+import NavBar from "./NavBar";
+import ViewJobs from "./ViewJobs";
+import SingleJob from "./SingleJob";
+import Home from "./Home";
+import Error from "./Error";
+import AddJob from "./AddJob";
+import Register from "./Register";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/jobs">
+          <ViewJobs />
+        </Route>
+        <Route path="/add_job">
+          <AddJob />
+        </Route>
+        <Route path="/view_job/:id">
+          <SingleJob />
+        </Route>
+        <Route path="/edit_job/:id">
+          <AddJob />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
