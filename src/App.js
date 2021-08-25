@@ -11,6 +11,7 @@ import Home from "./Home";
 import Error from "./Error";
 import AddJob from "./AddJob";
 import Register from "./Register";
+import Login from "./Login";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="*">
           <Error />

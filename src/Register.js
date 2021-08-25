@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Card } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import { useHistory } from "react-router";
 
 export default function Register() {
@@ -8,7 +8,6 @@ export default function Register() {
   const history = useHistory();
 
   const validateInfo = () => {
-    console.log("data validated!");
     const issues = {};
     if (!registerInfo.name) issues.name = "Please enter a name.";
     if (!registerInfo.username) issues.username = "Please enter a username.";
@@ -33,70 +32,63 @@ export default function Register() {
   };
   return (
     <main>
-      <section className="section register-form">
+      <section className="section auth-form">
         <h1>Register</h1>
         <Form>
-          <Form.Field required>
-            <label>Name:</label>
-            <Form.Input
-              error={invalidFormFields.name ? invalidFormFields.name : null}
-              value={registerInfo.name}
-              onChange={(e) =>
-                setRegisterInfo({ ...registerInfo, name: e.target.value })
-              }
-              type="text"
-            ></Form.Input>
-          </Form.Field>
-          <Form.Field required>
-            <label>Email:</label>
-            <Form.Input
-              error={invalidFormFields.email ? invalidFormFields.email : null}
-              type="email"
-              value={registerInfo.email}
-              onChange={(e) =>
-                setRegisterInfo({ ...registerInfo, email: e.target.value })
-              }
-            ></Form.Input>
-          </Form.Field>
-          <Form.Field required>
-            <label htmlFor="">Username:</label>
-            <Form.Input
-              error={
-                invalidFormFields.username ? invalidFormFields.username : null
-              }
-              type="text"
-              value={registerInfo.username}
-              onChange={(e) =>
-                setRegisterInfo({ ...registerInfo, username: e.target.value })
-              }
-            ></Form.Input>
-          </Form.Field>
-          <Form.Field required>
-            <label htmlFor="">Password:</label>
-            <Form.Input
-              error={
-                invalidFormFields.password ? invalidFormFields.password : null
-              }
-              type="password"
-              value={registerInfo.password}
-              onChange={(e) =>
-                setRegisterInfo({ ...registerInfo, password: e.target.value })
-              }
-            ></Form.Input>
-          </Form.Field>
-          <Form.Field required>
-            <label htmlFor="">Confirm password:</label>
-            <Form.Input
-              error={
-                invalidFormFields.confirm ? invalidFormFields.confirm : null
-              }
-              type="password"
-              value={registerInfo.confirm}
-              onChange={(e) =>
-                setRegisterInfo({ ...registerInfo, confirm: e.target.value })
-              }
-            ></Form.Input>
-          </Form.Field>
+          <Form.Input
+            required
+            error={invalidFormFields.name ? invalidFormFields.name : null}
+            value={registerInfo.name}
+            onChange={(e) =>
+              setRegisterInfo({ ...registerInfo, name: e.target.value })
+            }
+            type="text"
+            label="Name:"
+          />
+          <Form.Input
+            required
+            error={invalidFormFields.email ? invalidFormFields.email : null}
+            type="email"
+            value={registerInfo.email}
+            onChange={(e) =>
+              setRegisterInfo({ ...registerInfo, email: e.target.value })
+            }
+            label="Email:"
+          />
+          <Form.Input
+            required
+            error={
+              invalidFormFields.username ? invalidFormFields.username : null
+            }
+            type="text"
+            value={registerInfo.username}
+            onChange={(e) =>
+              setRegisterInfo({ ...registerInfo, username: e.target.value })
+            }
+            label="Username:"
+          />
+          <Form.Input
+            required
+            error={
+              invalidFormFields.password ? invalidFormFields.password : null
+            }
+            type="password"
+            value={registerInfo.password}
+            onChange={(e) =>
+              setRegisterInfo({ ...registerInfo, password: e.target.value })
+            }
+            label="Password:"
+          />
+          <Form.Input
+            required
+            error={invalidFormFields.confirm ? invalidFormFields.confirm : null}
+            type="password"
+            value={registerInfo.confirm}
+            onChange={(e) =>
+              setRegisterInfo({ ...registerInfo, confirm: e.target.value })
+            }
+            label="Confirm Password:"
+          />
           <Button type="submit" onClick={handleRegister}>
             Register
           </Button>
