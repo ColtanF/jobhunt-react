@@ -58,3 +58,10 @@ section {
 .details {
   white-space: pre-line;
 }
+
+.register-form {
+  border: 0.1px solid rgb(0, 0, 0, 0.1);
+  box-shadow: 0 0.5px 2px 0 gray;
+  padding: 20px;
+  border-radius: 5px;
+}
