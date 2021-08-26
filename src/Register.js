@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Message } from "semantic-ui-react";
 import { useHistory } from "react-router";
+
+const url = "http://127.0.0.1:5000/register";
 
 export default function Register() {
   const [registerInfo, setRegisterInfo] = useState({});
   const [invalidFormFields, setInvalidFormFields] = useState({});
+  const [error, setError] = useState("");
   const history = useHistory();
 
   const validateInfo = () => {
@@ -21,23 +24,43 @@ export default function Register() {
     return issues;
   };
 
-  const handleRegister = (e) => {
+  const sendData = async () => {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(registerInfo),
+    };
+    try {
+      return fetch(url, requestOptions).then((data) => data.json());
+    } catch (error) {
+      console.log(error);
+      return {};
+    }
+  };
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("registered user (but not really)");
     const issues = validateInfo();
     setInvalidFormFields(issues);
     if (Object.keys(issues).length === 0) {
-      history.push("/");
+      const responseData = await sendData();
+      if (responseData.error) {
+        setError(responseData.error);
+        return;
+      } else history.push("/", { action: "registered" });
     }
   };
   return (
     <main>
       <section className="section auth-form">
         <h1>Register</h1>
+        {error && <Message negative>{error}</Message>}
         <Form>
           <Form.Input
             required
-            error={invalidFormFields.name ? invalidFormFields.name : null}
+            error={invalidFormFields?.name}
             value={registerInfo.name}
             onChange={(e) =>
               setRegisterInfo({ ...registerInfo, name: e.target.value })
