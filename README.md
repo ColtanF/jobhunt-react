@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# JobHunt (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+JobHunt is a job search posting tracking system where a user can track jobs that they've saved across multiple platforms. This was originally a branch from my other project (FITS), written entirely in Flask. However, when I started learning React, I realized a lot of the functionality that I wanted to add to the site that I found difficult to add in Flask was relatively simple in React, so I migrated the site, first as a learning exercise, but eventually as a full migration.
 
-## Available Scripts
+### What is this site used for?
 
-In the project directory, you can run:
+I got the idea for the site while looking at software engineering jobs. I've come across jobs I was interested in all over the place, from traditional job sites like Indeed, LinkedIn, and Glassdoor, to smaller sites like BuiltInAustin (where I'm located). I've even seen some jobs posted by other developers on Twitter. Before creating this site, I was doing what many other people in my position do: saving all of the information from the job, like requirements, company descriptions, projected salary, etc, to a spreadsheet.
 
-### `npm start`
+### What if I want to use this code?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The base of this React app was made with create-react-app, meaning that you should be able to pull the code from github, and as long as you have npm installed, you should be able to just run the following to get a dev build up and going:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+npm install
+npm run start
+```
 
-### `npm test`
+That will get the front end up and going. For the backend, you'll need Python and MySQL installed, at a minimum. Follow the instructions on the [backend repo](https://github.com/ColtanF/jobhunt-backend) to set that up.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A few other notes: authentication doesn't entirely work yet, so register/login is mostly for show. You can register new users to the backend as well as "login" (really just verifying a user exists in the backend), but those don't really do anything.
