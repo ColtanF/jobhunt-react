@@ -3,9 +3,9 @@ import Categories from "./Categories";
 import JobList from "./JobList";
 import { useFetch } from "./useFetch";
 
-const url = "http://coltanfranke-jobhunt-api.herokuapp.com/jobs";
+const url = "https://coltanfranke-jobhunt-api.herokuapp.com/jobs";
 const deleteUrl =
-  "http://coltanfranke-jobhunt-api.herokuapp.com/job/delete_job/";
+  "https://coltanfranke-jobhunt-api.herokuapp.com/job/delete_job/";
 
 export default function ViewJobs() {
   const [jobList, setJobList] = useState([]);

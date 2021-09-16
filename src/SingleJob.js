@@ -8,7 +8,7 @@ import "./App.css";
 
 import { useFetch } from "./useFetch";
 
-const url = "http://coltanfranke-jobhunt-api.herokuapp.com/job/";
+const url = "https://coltanfranke-jobhunt-api.herokuapp.com/job/";
 
 export default function SingleJob() {
   const { id } = useParams();
