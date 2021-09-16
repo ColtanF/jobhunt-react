@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Message } from "semantic-ui-react";
 import { useHistory } from "react-router";
 
-const url = "http://127.0.0.1:5000/login";
+const url = "http://coltanfranke-jobhunt-api.herokuapp.com/login";
 
 export default function Login() {
   const [loginInfo, setLoginInfo] = useState({});
@@ -42,7 +42,9 @@ export default function Login() {
       if (responseData.error) {
         setError(responseData.error);
         return;
-      } else history.push("/", { action: "logged_in" });
+      } else {
+        history.push("/", { action: "logged_in" });
+      }
     }
   };
   return (

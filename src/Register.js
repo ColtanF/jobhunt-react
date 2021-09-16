@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Message } from "semantic-ui-react";
 import { useHistory } from "react-router";
 
-const url = "http://127.0.0.1:5000/register";
+const url = "http://coltanfranke-jobhunt-api.herokuapp.com/register";
 
 export default function Register() {
   const [registerInfo, setRegisterInfo] = useState({});

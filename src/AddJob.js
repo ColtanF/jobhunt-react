@@ -4,9 +4,9 @@ import "semantic-ui-css/semantic.min.css";
 import { useParams, useHistory } from "react-router";
 import "./App.css";
 
-const url = "http://127.0.0.1:5000/job/";
-const addUrl = "http://127.0.0.1:5000/job/add_job";
-const editUrl = "http://127.0.0.1:5000/job/edit_job/";
+const url = "http://coltanfranke-jobhunt-api.herokuapp.com/job/";
+const addUrl = "http://coltanfranke-jobhunt-api.herokuapp.com/job/add_job";
+const editUrl = "http://coltanfranke-jobhunt-api.herokuapp.com/job/edit_job/";
 const optionalFields = new Set([
   "reqsIMeet",
   "reqsIDontMeet",
