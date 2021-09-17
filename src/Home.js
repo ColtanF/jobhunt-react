@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
-import { Message, Button } from "semantic-ui-react";
+import { Message } from "semantic-ui-react";
 
 export default function Home() {
   const location = useLocation();
