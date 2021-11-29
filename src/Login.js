@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Form, Button, Message } from "semantic-ui-react";
 import { useHistory } from "react-router";
 
-const url = "https://coltanfranke-jobhunt-api.herokuapp.com/login";
+const url = "http://coltanfranke-jobhunt-api.herokuapp.com/login";
 
 export default function Login() {
-  const [loginInfo, setLoginInfo] = useState({});
+  const [loginInfo, setLoginInfo] = useState({
+    username: "",
+    password: "",
+  });
   const [loginFormIssues, setLoginFormIssues] = useState({});
   const [error, setError] = useState("");
   const history = useHistory();
@@ -43,7 +46,9 @@ export default function Login() {
         setError(responseData.error);
         return;
       } else {
-        history.push("/", { action: "logged_in" });
+        sessionStorage.setItem("logged_in", "true");
+        sessionStorage.setItem("username", loginInfo.username);
+        history.push("/", { action: "logged_in", isLoggedIn: "true" });
       }
     }
   };

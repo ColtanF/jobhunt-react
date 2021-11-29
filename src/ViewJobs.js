@@ -4,13 +4,16 @@ import JobList from "./JobList";
 import { useFetch } from "./useFetch";
 
 const url = "https://coltanfranke-jobhunt-api.herokuapp.com/jobs";
+// const url = "http://localhost:3001/jobs";
 const deleteUrl =
   "https://coltanfranke-jobhunt-api.herokuapp.com/job/delete_job/";
 
 export default function ViewJobs() {
   const [jobList, setJobList] = useState([]);
 
-  const { jobs, loading } = useFetch(url);
+  const { jobs, loading } = useFetch(
+    `${url}/${sessionStorage.getItem("username")}`
+  );
   const categories = ["all", "open", "applied", "rejected", "interviewing"];
 
   useEffect(() => {

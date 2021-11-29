@@ -8,7 +8,7 @@ export const useFetch = (url) => {
   const getJobs = useCallback(async () => {
     const response = await fetch(url);
     const jobs = await response.json();
-    setJobs(jobs);
+    setJobs(jobs.data);
     setLoading(false);
   }, [url]);
 
